@@ -15,8 +15,9 @@ module Enumerable
     result
   end
 
-  def my_all
-    result = []
+  def my_all?
+    self.my_each { |elem| return false unless yield(elem)}
+    return true
   end
 end
 
