@@ -42,6 +42,11 @@ module Enumerable
     self.my_each { |elem| result.push(yield(elem))}
     result
   end
+
+  def my_inject(initial = self.first)
+    self.my_each { |elem| initial = yield(initial, elem) }
+    initial
+  end
 end
 
 # You will first have to define my_each
