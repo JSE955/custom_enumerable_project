@@ -29,6 +29,13 @@ module Enumerable
     self.my_each { |elem| return false if yield(elem)}
     return true
   end
+
+  def my_count
+    return self.length unless block_given?
+    count = 0
+    self.my_each { |elem| count += 1 if yield(elem)}
+    count
+  end
 end
 
 # You will first have to define my_each
