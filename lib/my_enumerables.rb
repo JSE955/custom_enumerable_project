@@ -6,6 +6,18 @@ module Enumerable
     end
     return self
   end
+
+  def my_select
+    result = []
+    self.my_each do |elem|
+      result.push(elem) if yield(elem)
+    end
+    result
+  end
+
+  def my_all
+    result = []
+  end
 end
 
 # You will first have to define my_each
